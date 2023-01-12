@@ -70,5 +70,7 @@ button{
     height: 40px;
     position: absolute;
     right: 500px;
+    cursor: pointer;
+    font-size: 1.0rem;
 }
 </style>

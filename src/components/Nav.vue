@@ -13,7 +13,7 @@
     </div>
 
     <div id="menuConfiguracoes" class="navMenu">
-       <router-link to="/Configuracoes">config</router-link>
+       <router-link to="/Configuracoes"><span class="material-symbols-outlined">settings</span></router-link>
     </div>
 </div>  
 </template>

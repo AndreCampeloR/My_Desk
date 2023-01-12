@@ -1,6 +1,6 @@
 <template>
     <footer id="footer">
-       <p>My Tasks &copy; 2023</p>
+       <p>My Desk &copy; 2023</p>
     </footer>
 </template>
 

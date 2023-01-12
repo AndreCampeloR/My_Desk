@@ -19,7 +19,7 @@ export default {
 
 <style>
 *{
-  font-family: Helvetica;
+  font-family: 'Courier New', Courier, monospace;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
