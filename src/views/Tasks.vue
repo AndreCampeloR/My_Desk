@@ -20,7 +20,7 @@ export default {
 <style scoped>
  h1{
   font-family: 'Courier New', Courier, monospace;
-  margin: 5px;
+  margin: 20px;
  }
 
 </style>
