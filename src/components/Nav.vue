@@ -31,7 +31,7 @@ export default{
     border-bottom: 4px solid white;
     display: flex;
     justify-content: center;
-     height: 58px;
+    height: 58px;
    }
 
    .navMenu{

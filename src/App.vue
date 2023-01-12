@@ -1,15 +1,18 @@
 <template>
   <Nav/>
   <router-view/>
+  <Footer/>
 </template>
 
 
 <script>
 import Nav from './components/Nav.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   components: {
-    Nav
+    Nav,
+    Footer
   }
 }
 </script>
@@ -23,7 +26,12 @@ export default {
 }
 
 .main-container{
-  margin: 50px;
   min-height: 250px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 </style>
