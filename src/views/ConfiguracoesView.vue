@@ -1,12 +1,19 @@
 <template>
   <div id="ConfiguracaoView">
-    <h1>TESTE CONFIG</h1>
+    <Nav/>
+    <Footer/>
   </div>
 </template>
 
 <script>
+import Footer from '../components/Footer.vue'
+import Nav from '../components/Nav.vue'
 export default {
-    name: "ConfiguracoesView"
+    name: "ConfiguracoesView",
+    components: {
+      Footer,
+      Nav
+    }
 }
 </script>
 

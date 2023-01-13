@@ -1,7 +1,10 @@
 <template>
     <div id="view">
         <header class="flex-all-center">
-            <h1>My TASKs <font-awesome-icon icon="fa-regular fa-book-open"/></h1>
+            <h1>My TASKs</h1>
+            <span class="material-symbols-outlined">
+                import_contacts
+            </span>
         </header>
         <main>
             <h2>Login</h2>
@@ -24,6 +27,11 @@ export default {
 </script>
 
 <style scoped>
+    .material-symbols-outlined{
+        color: white;
+        font-size: 50px;
+        margin: 0 0 0 10px;
+    }
     .flex-all-center{
         display: flex;
         justify-content: center;
@@ -101,7 +109,7 @@ export default {
     }
     input::placeholder{
         text-align: center;
-        
+        font-size: 14px;
     }
     #bg-light{
         display: block;
