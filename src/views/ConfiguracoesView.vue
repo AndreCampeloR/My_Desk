@@ -1,16 +1,19 @@
 <template>
-  <div class="main-container">
-    <p>t</p>
+  <div id="ConfiguracaoView">
+
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Configuracoes'
+    name: "ConfiguracoesView",
+    components: {
+
+    }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
