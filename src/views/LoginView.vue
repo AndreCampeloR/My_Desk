@@ -6,8 +6,8 @@
         <main>
             <h2>Login</h2>
             <form action="">
-                <input type="email" required placeholder="E-Mail" id="emailInput">
-                <input type="password" required placeholder="Senha" id="password">
+                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="emailLogin">
+                <input type="password" required placeholder="Senha" id="password" v-model="passwordLogin">
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -17,7 +17,15 @@
 
 <script>
 export default {
-    name: 'LoginView'
+    name: 'LoginView',
+    data(){
+        return{
+            login:{
+                emailLogin: '',
+                passwordLogin: '',
+            }
+        }
+    }
 }
 </script>
 
@@ -71,6 +79,8 @@ export default {
     input{
        height: 30px; 
        border-radius: 100px;
+       outline: none;
+       border: none;
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
