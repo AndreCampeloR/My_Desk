@@ -1,5 +1,4 @@
 <template>
-  <Nav/>
   <router-view/>
   <Footer/>
 </template>
@@ -34,4 +33,5 @@ export default {
   align-items: center;
   flex-direction: column;
 }
+
 </style>

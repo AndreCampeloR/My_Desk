@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [
+import LoginPage from '../views/LoginView.vue'
 
+const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage
+  }
 ]
 
 const router = createRouter({
