@@ -5,15 +5,15 @@
     </div>
 
     <div id="menuEstatisticas" class="navMenu">
-       <router-link to="/Estatisticas">Estatisticas</router-link>
+       <router-link to="/EstatisticasView">Estatisticas</router-link>
     </div>
 
     <div id="menuSobre" class="navMenu">
-       <router-link to="/Sobre">Sobre</router-link>
+       <router-link to="/SobreView">Sobre</router-link>
     </div>
 
     <div id="menuConfiguracoes" class="navMenu">
-       <router-link to="/Configuracoes"><span class="material-symbols-outlined">settings</span></router-link>
+       <router-link to="/ConfiguracoesView"><span class="material-symbols-outlined">settings</span></router-link>
     </div>
 </div>  
 </template>
