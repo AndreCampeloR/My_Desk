@@ -1,13 +1,23 @@
 <template>
     <div id="view">
         <header class="flex-all-center">
-            <h1>My TASKs <font-awesome-icon icon="fa-regular fa-book-open"/></h1>
+            <h1>My TASKs</h1>
+            <span class="material-symbols-outlined">
+                import_contacts
+            </span>
         </header>
         <main>
             <h2>Login</h2>
             <form action="">
+<<<<<<< HEAD
                 <input type="email" required placeholder="E-Mail" id="emailInput" v-model="emailLogin">
                 <input type="password" required placeholder="Senha" id="password" v-model="passwordLogin">
+=======
+                <label for="emailInput">E-Mail</label>
+                <input type="email" required placeholder="E-Mail" id="emailInput">
+                <label for="password">Senha</label>
+                <input type="password" required placeholder="Senha" id="password">
+>>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -30,6 +40,11 @@ export default {
 </script>
 
 <style scoped>
+    .material-symbols-outlined{
+        color: white;
+        font-size: 50px;
+        margin: 0 0 0 10px;
+    }
     .flex-all-center{
         display: flex;
         justify-content: center;
@@ -43,7 +58,7 @@ export default {
         font-size: 40px;
     }
     h2{
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
     h1, h2{
         font-family: 'Oswald', sans-serif;
@@ -79,12 +94,26 @@ export default {
     input{
        height: 30px; 
        border-radius: 100px;
+<<<<<<< HEAD
        outline: none;
        border: none;
+=======
+       border: none;
+       outline: none;
+    }
+    input:focus-within{
+        box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.249);
+    }
+    label{
+        color: white;
+        font-family: 'Oswald', sans-serif;
+        width: 100%;
+        text-indent: 15px;
+>>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
-        margin: 10px;
+        margin: 15px;
         cursor: pointer;
         transition: 0.4s all;
     }
@@ -93,12 +122,12 @@ export default {
     }
     #password, #emailInput{
         width: clamp(200px, 20vw, 290px);
-        margin: 3px;
+        margin: 6px;
         padding: 0 7px;
     }
     input::placeholder{
         text-align: center;
-        
+        font-size: 14px;
     }
     #bg-light{
         display: block;
