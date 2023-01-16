@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginPage from '../views/LoginView.vue'
+
 import Tasks from '../views/TasksView.vue'
 
 const routes = [

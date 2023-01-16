@@ -1,15 +1,23 @@
 <template>
     <div id="view">
         <header class="flex-all-center">
-            <h1>My TASKs <font-awesome-icon icon="fa-regular fa-book-open"/></h1>
+            <h1>My TASKs</h1>
+            <span class="material-symbols-outlined">
+                import_contacts
+            </span>
         </header>
         <main>
             <h2>Login</h2>
             <form action="">
+<<<<<<< HEAD
+                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="emailLogin">
+                <input type="password" required placeholder="Senha" id="password" v-model="passwordLogin">
+=======
                 <label for="emailInput">E-Mail</label>
                 <input type="email" required placeholder="E-Mail" id="emailInput">
                 <label for="password">Senha</label>
                 <input type="password" required placeholder="Senha" id="password">
+>>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -19,11 +27,24 @@
 
 <script>
 export default {
-    name: 'LoginView'
+    name: 'LoginView',
+    data(){
+        return{
+            login:{
+                emailLogin: '',
+                passwordLogin: '',
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
+    .material-symbols-outlined{
+        color: white;
+        font-size: 50px;
+        margin: 0 0 0 10px;
+    }
     .flex-all-center{
         display: flex;
         justify-content: center;
@@ -73,6 +94,10 @@ export default {
     input{
        height: 30px; 
        border-radius: 100px;
+<<<<<<< HEAD
+       outline: none;
+       border: none;
+=======
        border: none;
        outline: none;
     }
@@ -84,6 +109,7 @@ export default {
         font-family: 'Oswald', sans-serif;
         width: 100%;
         text-indent: 15px;
+>>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
@@ -101,7 +127,7 @@ export default {
     }
     input::placeholder{
         text-align: center;
-        
+        font-size: 14px;
     }
     #bg-light{
         display: block;
