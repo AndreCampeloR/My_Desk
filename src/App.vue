@@ -1,24 +1,17 @@
 <template>
-  <Nav/>
   <router-view/>
-  <Footer/>
 </template>
 
 
 <script>
-import Nav from './components/Nav.vue'
-import Footer from './components/Footer.vue'
 
 export default {
-  components: {
-    Nav,
-    Footer
-  }
 }
 </script>
 
 <style>
 *{
+  --second-font-familia: 'Oswald', sans-serif;
   font-family: 'Courier New', Courier, monospace;
   padding: 0;
   margin: 0;

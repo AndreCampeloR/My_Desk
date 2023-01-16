@@ -1,28 +1,44 @@
 <template>
 <div class="divForm">
-     <form class="form" action="">
-        <input type="text" v-for="task in lista" :key="task" :value="task"> 
-     </form>
-     <div class="divDangerZone">
-        <h2>Danger Zone</h2>
-        <input type="text">
-     </div>
+    <form class="form" action="">
+    <Task v-for="task in lista" :key="task" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
+        
+    </Task> 
+    </form>
+    <div class="divDangerZone">
+    <h2>Danger Zone</h2>
+    <input type="text">
+    </div>
 </div>
 </template>
 
 
 
 <script>
+import Task from './Task.vue';
 
 export default {
   name: 'MainTasks',
+  components:{
+    Task
+  },
   data(){
     return{
         lista: [
-            "fazer tarefa",
-            "comprar cenoura",
-            "vendere banana"
-    ]
+            {
+                desc: "fazer tarefa",
+                id: 1,
+            },
+            {
+                desc: "comprar cenoura",
+                id: 2,
+            },
+            {
+                desc: "vender banana",
+                id: 3,
+            }
+        ],
+        configIsOpen: false
     }
   }
 }

@@ -1,21 +1,27 @@
 <template>
   <div class="main-container">
+    <Nav/>
     <h1>Main TASKs</h1>
     <MainTasks/>
     <button>
       Secundary TASKs
     </button>
+    <Footer/>
   </div>
 </template>
 
 <script>
 
 import MainTasks from '../components/MainTasks.vue'
+import Nav from '../components/Nav.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
   name: 'Tasks',
   components: {
-    MainTasks
+    MainTasks,
+    Nav,
+    Footer
   }
 }
 </script>

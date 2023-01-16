@@ -32,6 +32,7 @@ export default{
     display: flex;
     justify-content: center;
     height: 58px;
+    width: 100vw;
    }
 
    .navMenu{
