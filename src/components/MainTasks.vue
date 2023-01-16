@@ -1,17 +1,12 @@
 <template>
 <div class="divForm">
      <form class="form" action="">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <input type="text" v-for="task in lista" :key="task" :value="task"> 
      </form>
      <div class="divDangerZone">
         <h2>Danger Zone</h2>
         <input type="text">
      </div>
-     <button>
-       Secundary TASKs
-     </button>
 </div>
 </template>
 
@@ -20,7 +15,16 @@
 <script>
 
 export default {
-  name: 'TasksList'
+  name: 'MainTasks',
+  data(){
+    return{
+        lista: [
+            "fazer tarefa",
+            "comprar cenoura",
+            "vendere banana"
+    ]
+    }
+  }
 }
 
 </script>
@@ -60,17 +64,5 @@ h2{
     width: 400px;
     height: 25px;
     margin: 15px;
-}
-
-button{
-    background-color: #000;
-    color: #fff;
-    border-radius: 50px;
-    width: 180px;
-    height: 40px;
-    position: absolute;
-    right: 500px;
-    cursor: pointer;
-    font-size: 1.0rem;
 }
 </style>

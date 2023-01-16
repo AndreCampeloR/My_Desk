@@ -89,10 +89,6 @@ export default {
     input{
        height: 30px; 
        border-radius: 100px;
-<<<<<<< HEAD
-       outline: none;
-       border: none;
-=======
        border: none;
        outline: none;
     }
@@ -104,7 +100,6 @@ export default {
         font-family: 'Oswald', sans-serif;
         width: 100%;
         text-indent: 15px;
->>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
