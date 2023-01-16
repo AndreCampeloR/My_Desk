@@ -1,4 +1,5 @@
 <template>
+  <Nav/>
   <router-view/>
   <Footer/>
 </template>
