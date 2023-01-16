@@ -91,6 +91,7 @@ export default {
        border-radius: 100px;
        border: none;
        outline: none;
+       font-family: 'Oswald', sans-serif;
     }
     input:focus-within{
         box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.249);
