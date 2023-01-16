@@ -21,7 +21,7 @@ export default {
         lista: [
             "fazer tarefa",
             "comprar cenoura",
-            "vendere banana"
+            "vender banana"
     ]
     }
   }

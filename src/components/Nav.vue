@@ -5,15 +5,15 @@
     </div>
 
     <div id="menuEstatisticas" class="navMenu">
-       <router-link to="/EstatisticasView">Estatisticas</router-link>
+       <router-link to="/estatisticas">Estatisticas</router-link>
     </div>
 
     <div id="menuSobre" class="navMenu">
-       <router-link to="/SobreView">Sobre</router-link>
+       <router-link to="/sobre">Sobre</router-link>
     </div>
 
     <div id="menuConfiguracoes" class="navMenu">
-       <router-link to="/ConfiguracoesView"><span class="material-symbols-outlined">settings</span></router-link>
+       <router-link to="/configuracoes"><span class="material-symbols-outlined">settings</span></router-link>
     </div>
 </div>  
 </template>
@@ -32,6 +32,8 @@ export default{
     display: flex;
     justify-content: center;
     height: 58px;
+    width: 100vw;
+    top: 0;
    }
 
    .navMenu{

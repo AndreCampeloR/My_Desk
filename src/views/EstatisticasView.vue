@@ -1,15 +1,26 @@
 <template>
   <div class="main-container">
+    <Nav/>
+    <main>
     <h1>GRAFICOS AQUI</h1>
     <h2>GRAFICOS AQUI</h2>
     <h2>GRAFICOS AQUI</h2>
+    </main>
+    <Footer/>
   </div>
 </template>
 
 <script>
 
+import Nav from '../components/Nav.vue'
+import Footer from '../components/Footer.vue'
+
 export default {
-  name: 'Estatisticas'
+  name: 'EstatisticasView.vue',
+  components: {
+    Nav,
+    Footer
+  }
 }
 </script>
 
