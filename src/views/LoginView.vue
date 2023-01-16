@@ -9,15 +9,10 @@
         <main>
             <h2>Login</h2>
             <form action="">
-<<<<<<< HEAD
-                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="emailLogin">
-                <input type="password" required placeholder="Senha" id="password" v-model="passwordLogin">
-=======
                 <label for="emailInput">E-Mail</label>
                 <input type="email" required placeholder="E-Mail" id="emailInput">
                 <label for="password">Senha</label>
                 <input type="password" required placeholder="Senha" id="password">
->>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -94,10 +89,6 @@ export default {
     input{
        height: 30px; 
        border-radius: 100px;
-<<<<<<< HEAD
-       outline: none;
-       border: none;
-=======
        border: none;
        outline: none;
     }
@@ -109,7 +100,6 @@ export default {
         font-family: 'Oswald', sans-serif;
         width: 100%;
         text-indent: 15px;
->>>>>>> 10b5e93549dbf76d71fd1b11d89efe1c0990b5d0
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
