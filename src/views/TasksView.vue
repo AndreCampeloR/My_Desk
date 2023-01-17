@@ -5,7 +5,7 @@
         <h1>Main TASKs</h1>
           <MainTasks/>
           <div class="btns">
-             <button id="btnAdicionar">
+             <button id="btnAdicionar" @click="showAddTaskWindow = !showAddTaskWindow">
              <span class="material-symbols-outlined">add_circle</span>
               Adicionar Tasks
              </button>
@@ -14,6 +14,7 @@
              </button>
           </div>
       </main>
+      <NewTask v-if="showAddTaskWindow"/>
     <Footer/>
   </div>
 </template>
@@ -22,6 +23,7 @@
 import MainTasks from '../components/MainTasks.vue'
 import Nav from '../components/Nav.vue';
 import Footer from '../components/Footer.vue';
+import NewTask from '../components/NewTask.vue'
 
 
 export default {
@@ -29,7 +31,13 @@ export default {
   components: {
     MainTasks,
     Nav,
-    Footer
+    Footer,
+    NewTask
+  },
+  data(){
+    return{
+      showAddTaskWindow: false
+    }
   }
 }
 </script>
