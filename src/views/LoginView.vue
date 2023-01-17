@@ -53,7 +53,7 @@ export default {
         font-size: 40px;
     }
     h2{
-        margin-bottom: 25px;
+        margin: 0 auto 25px auto;
     }
     h1, h2{
         font-family: 'Oswald', sans-serif;
@@ -84,7 +84,7 @@ export default {
         align-content: space-around;
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        width: fit-content;
     }   
     input{
        height: 30px; 
@@ -100,7 +100,7 @@ export default {
         color: white;
         font-family: 'Oswald', sans-serif;
         width: 100%;
-        text-indent: 15px;
+        text-align: center;
     }
     #submit{
         width: clamp(150px, 15vw, 190px);
