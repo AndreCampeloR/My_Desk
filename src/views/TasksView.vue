@@ -1,14 +1,19 @@
 <template>
   <div class="main-container">
     <Nav/>
-    <main>
-      <h1>Main TASKs</h1>
-      <MainTasks/>
-      <button>
-        Secundary TASKs
-      </button>
-    </main>
-
+      <main>
+        <h1>Main TASKs</h1>
+          <MainTasks/>
+          <div class="btns">
+             <button id="btnAdicionar">
+             <span class="material-symbols-outlined">add_circle</span>
+              Adicionar Tasks
+             </button>
+             <button>
+              TASKs Secundárias 
+             </button>
+          </div>
+      </main>
     <Footer/>
   </div>
 </template>
@@ -36,15 +41,29 @@ export default {
  }
 
  button{
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.69);
   color: #fff;
   border-radius: 50px;
-  width: 180px;
+  width: 200px;
   height: 40px;
-  position: absolute;
-  right: 500px;
-  bottom:260px;
   cursor: pointer;
   font-size: 1.0rem;
+  border: none;
 }
+
+.btns{
+  display: flex;
+}
+
+#btnAdicionar{
+    background-color: rgb(16, 163, 16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined{
+    margin-right: 4px;
+}
+
 </style>
