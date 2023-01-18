@@ -2,7 +2,7 @@
 <div class="divForm">
     <form class="form" action="">
     <Task v-for="task in lista" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
-
+        <menu-config/>
     </Task> 
     </form>
     <div class="divDangerZone">
@@ -16,11 +16,13 @@
 
 <script>
 import Task from './Task.vue';
+import MenuConfig from './MenuConfig.vue';
 
 export default {
   name: 'MainTasks',
   components:{
-    Task
+    Task,
+    MenuConfig
   },
   data(){
     return{

@@ -9,12 +9,13 @@
              <span class="material-symbols-outlined">add_circle</span>
               Adicionar Tasks
              </button>
-             <button>
+             <button id="btnSecundary" @click="showSecundaryTasksWindow = !showSecundaryTasksWindow">
               TASKs Secundárias 
              </button>
           </div>
       </main>
       <NewTask v-if="showAddTaskWindow" @fecharPopUp="showAddTaskWindow=false"/>
+      <SecundaryTasks v-if="showSecundaryTasksWindow" @fecharPopUp="showSecundaryTasksWindow=false"/>
     <Footer/>
   </div>
 </template>
@@ -24,6 +25,7 @@ import MainTasks from '../components/MainTasks.vue'
 import Nav from '../components/Nav.vue';
 import Footer from '../components/Footer.vue';
 import NewTask from '../components/NewTask.vue'
+import SecundaryTasks from '../components/SecundaryTasks.vue'
 
 
 export default {
@@ -32,11 +34,13 @@ export default {
     MainTasks,
     Nav,
     Footer,
-    NewTask
+    NewTask,
+    SecundaryTasks
   },
   data(){
     return{
-      showAddTaskWindow: false
+      showAddTaskWindow: false,
+      showSecundaryTasksWindow: false
     }
   }
 }

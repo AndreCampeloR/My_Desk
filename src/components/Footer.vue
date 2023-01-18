@@ -18,6 +18,8 @@ export default {
         width: 100vw;
         display: flex;
         align-content: center;
+        position: absolute;
+        bottom: 0;
     }
     p{
         margin: auto;
