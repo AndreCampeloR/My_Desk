@@ -1,7 +1,7 @@
 <template>
     <div id="add-task-background">
         <div id="adding-task">
-            <span class="material-symbols-outlined" id="trash">
+            <span class="material-symbols-outlined" id="trash" @click="closeWindow()">
                 close
             </span>
             <h2>Adicione uma Task</h2>
@@ -56,6 +56,11 @@ export default {
         prioridadeIsManual(){
             return this.prioridade === "manual" 
         }
+    },
+    methods:{
+        closeWindow(){
+            this.$emit('fecharPopUp', true)
+        }
     }
 }
 </script>
@@ -69,6 +74,7 @@ export default {
     color: red;
     font-size: 28px;
     font-weight: 700;
+    cursor: pointer;
 }
 #add-task-background{
     display: flex;

@@ -14,7 +14,7 @@
              </button>
           </div>
       </main>
-      <NewTask v-if="showAddTaskWindow"/>
+      <NewTask v-if="showAddTaskWindow" @fecharPopUp="showAddTaskWindow=false"/>
     <Footer/>
   </div>
 </template>
