@@ -5,7 +5,7 @@
                 close
             </span>
             <h2>Adicione uma Task</h2>
-            <form action="">
+            <form @action.prevent="">
 
                 <label for="type-task">
                     <p>Tipo de Task</p>
@@ -36,9 +36,12 @@
 
                 </div>
                 
-                <label for="">
-
+                <label for="task-text">
+                    Insira a tarefa
+                    <input type="text" name="TaskText" id="task-text" maxlength="50">
                 </label>
+
+                <input type="button" value="Criar Tarefa" id="create-task">
             </form>
         </div>
     </div>
@@ -122,7 +125,7 @@ select{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5px 0;
+    padding: 10px 0 50px 0;
 }
 
 #prioridade-number{
