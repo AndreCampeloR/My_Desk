@@ -8,8 +8,10 @@
             </span>
           </div>
             <form class="form" action="">
-                <Task v-for="task in listaSecundaria" :key="task.id" :TaskBody="task"> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus sapiente sequi voluptatem minus, suscipit velit? Repudiandae voluptas nisi esse, beatae labore iusto eaque laboriosam accusamus doloremque architecto, consequatur incidunt!
-                </p>
+                <Task v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
+
+                    <MenuConfig/>
+
                 </Task>
             </form>
         </div>     
@@ -20,6 +22,7 @@
 <script>
 
 import Task from '../components/Task.vue'
+import MenuConfig from '../components/MenuConfig.vue'
 
 export default {
 
@@ -48,7 +51,8 @@ export default {
         }
     },
     components: {
-        Task
+        Task,
+        MenuConfig
     }
   }
 

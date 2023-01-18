@@ -15,18 +15,11 @@
         <span class="material-symbols-outlined" id="options" v-on:click="abreMenu" :class="{'open-options': configIsOpen}" >
             chevron_right
         </span>
-
-        <div class="menu-options" v-show="configIsOpen" >
-            <span class="material-symbols-outlined" id="done" >
-                done
-            </span>
-            <span class="material-symbols-outlined" id="trash">
-                close
-            </span>
-            <span class="material-symbols-outlined" id="config">
-                settings
-            </span>
+         
+        <div v-show="configIsOpen">
+           <slot></slot>
         </div>
+    
         
     </div>
   </div>
@@ -61,7 +54,8 @@ export default {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        height: 80px;
+        height: auto;
+        min-height: 90px;
     }
     #options-body{
         width: 10%;   
@@ -69,6 +63,7 @@ export default {
         position: relative;
         display: flex;
         align-items: center;
+        margin-right: 10px;
     }
     #task-body{
         width: 90%;
@@ -82,38 +77,9 @@ export default {
     .open-options{
         transform: rotate(180deg);
     }
-    .menu-options{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        position: absolute;
-        left: 60px;
-        top: 50%;
-        transform: translatey(-50%);
-    }
-    .menu-options span{
-        cursor: default;
-        transition: 0.5s all;
-        padding: 3px 0;
-    }
-    .menu-options span:hover{
-        transform: scale(1.2);
-    }
+    
     #display-none{
         display: none;
     }
-    #done{
-        color: green;
-        cursor: pointer;
-    }
-    #trash{
-        color: red;
-        cursor: pointer;
-    }
-    #config{
-        color: gray;
-        cursor: pointer;
-    }
+    
 </style>
