@@ -8,7 +8,7 @@
             <form action="">
 
                 <label for="type-task">
-                    Tipo de Task
+                    <p>Tipo de Task</p>
                     <select name="type-task" id="type-task">
                         <option value="normal">Normal</option>
                         <option value="emergencial">Emergencial</option>
@@ -32,11 +32,13 @@
                         </label>
                         <input type="radio" name="prioridade-task" id="manual" v-model="prioridade" value="manual">
                     </div>
-                    <input type="number" name="prioridade" id="prioridade-number" value="0" v-show="prioridadeIsManual>
+                    <input type="number" name="prioridade" id="prioridade-number" value="0" v-show="prioridadeIsManual">
 
                 </div>
                 
-                
+                <label for="">
+
+                </label>
             </form>
         </div>
     </div>
