@@ -5,6 +5,7 @@
 // }
 <template>
   <div id="task">
+    
     <div id="task-body">
         <p>
             {{TaskBody.desc}}
@@ -83,13 +84,14 @@ export default {
     }
     .menu-options{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         align-content: center;
         position: absolute;
         left: 60px;
-        top: 0px;
+        top: 50%;
+        transform: translatey(-50%);
     }
     .menu-options span{
         cursor: default;
@@ -104,11 +106,14 @@ export default {
     }
     #done{
         color: green;
+        cursor: pointer;
     }
     #trash{
         color: red;
+        cursor: pointer;
     }
     #config{
         color: gray;
+        cursor: pointer;
     }
 </style>

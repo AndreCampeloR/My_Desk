@@ -113,9 +113,6 @@ form, label{
     align-items: center;
 }
 
-label{
-
-}
 
 select{
     margin: 5px;
