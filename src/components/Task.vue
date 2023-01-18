@@ -11,11 +11,11 @@
         </p>
     </div>
     <div id="options-body">
-        <span class="material-symbols-outlined" id="options" @click="configIsOpen = !configIsOpen" :class="{'open-options': configIsOpen}">
+        <span class="material-symbols-outlined" id="options" v-on:click="abreMenu" :class="{'open-options': configIsOpen}" >
             chevron_right
         </span>
 
-        <div class="menu-options" v-show="configIsOpen">
+        <div class="menu-options" v-show="configIsOpen" >
             <span class="material-symbols-outlined" id="done" >
                 done
             </span>
@@ -37,6 +37,11 @@ export default {
     data(){
         return{
             configIsOpen:false
+        }
+    },
+    methods: {
+        abreMenu(){
+            this.configIsOpen = !this.configIsOpen
         }
     },
     props: {

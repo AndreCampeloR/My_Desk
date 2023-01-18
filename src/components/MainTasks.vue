@@ -1,8 +1,8 @@
 <template>
 <div class="divForm">
     <form class="form" action="">
-    <Task v-for="task in lista" :key="task" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
-        
+    <Task v-for="task in lista" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
+
     </Task> 
     </form>
     <div class="divDangerZone">
