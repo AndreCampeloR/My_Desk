@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import LoginPage from '../views/LoginView.vue'
+import Login from '../views/LoginView.vue'
+
+import Register from '../views/RegisterView.vue'
 
 import Tasks from '../views/TasksView.vue'
 
@@ -10,31 +12,43 @@ import Estatisticas from '../views/EstatisticasView.vue'
 
 import Sobre from '../views/SobreView.vue'
 
+import notFoundPage from '../views/NotFoundPageView.vue'
+
 const routes = [
   {
     path: '/login',
     name: 'login',
-    component: LoginPage
+    component: Login
+  },
+  {
+    path: '/registro',
+    name: 'registro',
+    component: Register
   },
   {
     path: '/',
-    name: 'Tasks',
+    name: 'home',
     component: Tasks
   },
   {
     path: '/configuracoes',
-    name: 'Configuracoes',
+    name: 'configuracoes',
     component: Configuracoes
   },
   {
     path: '/estatisticas',
-    name: 'Estatisticas',
+    name: 'estatisticas',
     component: Estatisticas
   },
   {
     path: '/sobre',
-    name: 'Sobre',
+    name: 'sobre',
     component: Sobre
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'notFound',
+    component: notFoundPage
   }
 ]
 
