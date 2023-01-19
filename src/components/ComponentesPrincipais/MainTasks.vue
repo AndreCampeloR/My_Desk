@@ -9,7 +9,7 @@
 
 <script>
 import Task from '../ComponentesSecundarios/Task.vue';
-import MenuConfig from '../MenuConfig.vue';
+import MenuConfig from '../ComponentesSlots/MenuConfig.vue';
 
 export default {
   name: 'MainTasks',
