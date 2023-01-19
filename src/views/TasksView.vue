@@ -2,8 +2,9 @@
   <div class="main-container">
     <Nav/>
       <main>
-        <h1>Main TASKs</h1>
+        <h1 class="">Main TASKs</h1>
           <MainTasks/>
+          <DangerZoneTasks/>
           <div class="btns">
              <button id="btnAdicionar" @click="showAddTaskWindow = !showAddTaskWindow">
              <span class="material-symbols-outlined">add_circle</span>
@@ -26,7 +27,7 @@ import Nav from '../components/Nav.vue';
 import Footer from '../components/Footer.vue';
 import NewTask from '../components/NewTask.vue'
 import SecundaryTasks from '../components/SecundaryTasks.vue'
-
+import DangerZoneTasks from "../components/DangerZoneTasks.vue"
 
 export default {
   name: 'Tasks',
@@ -35,7 +36,8 @@ export default {
     Nav,
     Footer,
     NewTask,
-    SecundaryTasks
+    SecundaryTasks,
+    DangerZoneTasks
   },
   data(){
     return{
@@ -48,8 +50,9 @@ export default {
 
 <style scoped>
  h1{
-  font-family: 'Courier New', Courier, monospace;
-  margin: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 15px;
  }
 
  button{

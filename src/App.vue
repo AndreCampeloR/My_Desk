@@ -11,8 +11,9 @@ export default {
 
 <style>
 *{
-  --second-font-familia: 'Oswald', sans-serif;
-  font-family: 'Courier New', Courier, monospace;
+  --second-font-family: 'Oswald', sans-serif;
+  --primary-font-family: 'Courier New', Courier, monospace;
+  font-family: var(--second-font-family);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
