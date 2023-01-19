@@ -20,7 +20,7 @@
 
 <script>
 
-import Task from '../components/Task.vue'
+import Task from './ComponentesSecundarios/Task.vue'
 import MenuConfig from '../components/MenuConfig.vue'
 
 export default {

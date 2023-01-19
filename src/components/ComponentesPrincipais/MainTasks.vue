@@ -8,7 +8,7 @@
     </template>
 
 <script>
-import Task from '../Task.vue';
+import Task from '../ComponentesSecundarios/Task.vue';
 import MenuConfig from '../MenuConfig.vue';
 
 export default {
