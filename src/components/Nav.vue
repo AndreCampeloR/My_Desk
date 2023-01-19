@@ -30,6 +30,9 @@ export default{
 </script>
 
 <style scoped>
+   #menuTasks{
+      border-left: none
+   }
    #nav{
       background-color: rgb(0, 0, 0);
       border-bottom: 4px solid white;
@@ -66,9 +69,6 @@ export default{
    .page-is-active-config{
       text-shadow: 0px 0px 10px 10px white;
       font-size: 1.1rem;
-   }
-   #menuConfiguracoes{
-      border-right: 2px solid #fff;
    }
    .navMenu:hover{
       height: 70px;
