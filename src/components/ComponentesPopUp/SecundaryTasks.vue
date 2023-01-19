@@ -10,8 +10,6 @@
             <form class="form" action="">
                 <Task v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
 
-                    
-
                 </Task>
             </form>
         </div>     
@@ -21,8 +19,8 @@
 
 <script>
 
-import Task from '../components/Task.vue'
-import MenuConfig from '../components/MenuConfig.vue'
+import Task from '../ComponentesSecundarios/Task.vue'
+import MenuConfig from '../ComponentesSlots/MenuConfig.vue'
 
 export default {
 
