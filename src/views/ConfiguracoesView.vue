@@ -11,7 +11,7 @@
 
 <script>
 
-import Config from '../components/Config.vue';
+import Config from '../components/ComponentesPrincipais/Config.vue';
 import Nav from '../components/ComponentesPrincipais/Nav.vue';
 import Footer from '../components/ComponentesPrincipais/Footer.vue'
 
