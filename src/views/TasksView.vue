@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import MainTasks from '../components/MainTasks.vue'
+import MainTasks from '../components/ComponentesPrincipais/MainTasks.vue'
 import Nav from '../components/ComponentesPrincipais/Nav.vue';
 import Footer from '../components/ComponentesPrincipais/Footer.vue'
 import NewTask from '../components/NewTask.vue'

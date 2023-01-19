@@ -8,8 +8,8 @@
     </template>
 
 <script>
-import Task from './Task.vue';
-import MenuConfig from './MenuConfig.vue';
+import Task from '../Task.vue';
+import MenuConfig from '../MenuConfig.vue';
 
 export default {
   name: 'MainTasks',
