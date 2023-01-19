@@ -25,7 +25,7 @@
 import MainTasks from '../components/ComponentesPrincipais/MainTasks.vue'
 import Nav from '../components/ComponentesPrincipais/Nav.vue';
 import Footer from '../components/ComponentesPrincipais/Footer.vue'
-import NewTask from '../components/NewTask.vue'
+import NewTask from '../components/ComponentesPopUp/NewTask.vue'
 import SecundaryTasks from '../components/SecundaryTasks.vue'
 import DangerZoneTasks from "../components/ComponentesPrincipais/DangerZoneTasks.vue"
 
