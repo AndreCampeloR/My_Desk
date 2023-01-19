@@ -1,12 +1,11 @@
 <template>
-<div class="form">
-    <Task v-for="task in lista" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
-        <menu-config/>
-    </Task> 
-</div>
-</template>
-
-
+    <div class="form" :class="{'border': lista.length == 0, }">
+        <p v-if="lista.length == 0" id="semTasks">Sem tasks no momento</p>
+        <Task v-for="task in lista" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
+            <MenuConfig/>
+        </Task> 
+    </div>
+    </template>
 
 <script>
 import Task from './Task.vue';
@@ -46,9 +45,9 @@ export default {
     display: flex;
     flex-direction: column;
     width: clamp(300px, 60%, 700px);
-    border: 2px solid #000;
     border-radius: 10px;
     padding: 10px;
+    align-items: center;
 }
 
 
@@ -56,5 +55,11 @@ h2{
     color: red;
 }
 
+.border{
+    border: 2px solid #000;
+}
 
+#semTasks{
+    align-items: center;
+}
 </style>

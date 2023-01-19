@@ -10,7 +10,6 @@
             <form class="form" action="">
                 <Task v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
 
-                    
 
                 </Task>
             </form>

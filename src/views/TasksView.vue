@@ -23,8 +23,8 @@
 
 <script>
 import MainTasks from '../components/MainTasks.vue'
-import Nav from '../components/Nav.vue';
-import Footer from '../components/Footer.vue';
+import Nav from '../components/ComponentesPrincipais/Nav.vue';
+import Footer from '../components/ComponentesPrincipais/Footer.vue'
 import NewTask from '../components/NewTask.vue'
 import SecundaryTasks from '../components/SecundaryTasks.vue'
 import DangerZoneTasks from "../components/DangerZoneTasks.vue"
