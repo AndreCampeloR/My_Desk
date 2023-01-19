@@ -1,6 +1,6 @@
 <template><!-- class="footer is-black content has-text-centered" -->
-     <footer id="footer">
-       <p>My Desk &copy; 2023</p>
+    <footer id="footer">
+        <p>My Desk &copy; 2023</p>
     </footer>
 </template>
 
@@ -19,7 +19,7 @@ export default {
         display: flex;
         align-content: center;
         position: absolute;
-        bottom: 0;
+        top: 100%;
     }
     p{
         margin: auto;

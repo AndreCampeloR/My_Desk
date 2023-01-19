@@ -1,5 +1,5 @@
 <template>
-    <div id="view">
+  <div id="view">
         <header class="flex-all-center">
             <h1>MY TASKs</h1>
             <span class="material-symbols-outlined">
@@ -7,14 +7,16 @@
             </span>
         </header>
         <main class="main-init">
-            <h2>Login</h2>
+            <h2>Cadastro</h2>
             <form action="">
                 <label for="emailInput">E-Mail</label>
                 <input type="email" required placeholder="E-Mail" id="emailInput">
                 <label for="password">Senha</label>
                 <input type="password" required placeholder="Senha" id="password">
-                <router-link :to="{name: 'registro'}">Criar cadastro</router-link>
-                <input type="submit" value="Entrar" id="submit">
+                <label for="password">Confirmar Senha</label>
+                <input type="password" required placeholder="Confirmar Senha" id="password">
+                <router-link :to="{name: 'login'}">Fazer login</router-link>
+                <input type="submit" value="Criar conta" id="submit">
             </form>
         </main>
         <span id="bg-light"></span>
@@ -23,15 +25,7 @@
 
 <script>
 export default {
-    name: 'LoginView',
-    data(){
-        return{
-            login:{
-                emailLogin: '',
-                passwordLogin: '',
-            }
-        }
-    }
+    name: "RegisterView"
 }
 </script>
 
@@ -54,7 +48,7 @@ export default {
         font-size: 40px;
     }
     h2{
-        margin: 5px auto 20px auto;
+        margin: 0 auto 25px auto;
         font-size: 20px;
     }
     h1, h2{
@@ -121,7 +115,6 @@ export default {
         font-size: 14px;
     }
     #bg-light{
-        z-index: 0;
         display: block;
         position: absolute;
         top: 50%;
@@ -133,11 +126,9 @@ export default {
         background: rgba(255, 255, 255, 0.25);
         box-shadow: rgba(255, 255, 255, 0.25) 0 0 100px 150px;
     }
-
     a{
         color: white;
         text-decoration: underline;
         font-size: 15px;
-        z-index: 1;
     }
 </style>

@@ -81,4 +81,10 @@ export default {
     margin-right: 4px;
 }
 
+@media (max-width: 550px){
+  .btns{
+    flex-direction: column;
+  }
+}
+
 </style>
