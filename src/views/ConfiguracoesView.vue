@@ -27,8 +27,9 @@ export default {
 
 <style>
 h1{
-  font-family: 'Courier New', Courier, monospace;
-  margin: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 15px;
  }
 
  button{

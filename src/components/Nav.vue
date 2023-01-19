@@ -53,7 +53,6 @@ export default{
    }
    .navMenu a {
       font-size: 1.0rem;
-      font-family: 'Courier New', Courier, monospace;
       color: rgb(255, 255, 255);
       height: 100%;
       width: 100%;

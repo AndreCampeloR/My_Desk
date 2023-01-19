@@ -1,5 +1,5 @@
-<template>
-    <footer id="footer">
+<template><!-- class="footer is-black content has-text-centered" -->
+     <footer id="footer">
        <p>My Desk &copy; 2023</p>
     </footer>
 </template>
@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
     #footer{
-        color: #fCBA03;
+        color: #fff;
         background-color: #222;
         height: 130px;
         width: 100vw;
