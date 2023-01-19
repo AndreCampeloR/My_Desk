@@ -27,7 +27,7 @@ import Nav from '../components/ComponentesPrincipais/Nav.vue';
 import Footer from '../components/ComponentesPrincipais/Footer.vue'
 import NewTask from '../components/NewTask.vue'
 import SecundaryTasks from '../components/SecundaryTasks.vue'
-import DangerZoneTasks from "../components/DangerZoneTasks.vue"
+import DangerZoneTasks from "../components/ComponentesPrincipais/DangerZoneTasks.vue"
 
 export default {
   name: 'Tasks',
