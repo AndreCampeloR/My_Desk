@@ -7,18 +7,19 @@
                 close
             </span>
           </div>
-            <form class="form" action="">
+            <form class="form scroll" action="">
                 <Task class="taskSecundary" v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
-                       <div id="icons">
-                            <div id="trash">
-                                <span class="material-symbols-outlined">delete</span>
-                            </div>
+                    <div id="icons">
+                        
+                            <span id="trash" class="material-symbols-outlined">delete</span>
 
-                            <div id="arrow">
-                                <span class="material-symbols-outlined">expand_less</span>
-                                <span class="material-symbols-outlined">expand_more</span>
-                            </div>
-                       </div>
+                       <div id="arrows">
+    
+                            <span id="arrowUp" @click="subirTask()" class="material-symbols-outlined">expand_less</span>
+                            <span id="arrowDown" @click="descerTask()" class="material-symbols-outlined">expand_more</span>
+                    
+                        </div>
+                    </div>
                 </Task>
             </form>
         </div>     
@@ -64,6 +65,18 @@ export default {
             {
                 desc: "jogar bola",
                 id: 7,
+            },
+            {
+                desc: "comprar carneiro",
+                id: 5,
+            },
+            {
+                desc: "ir na padaria",
+                id: 6,
+            },
+            {
+                desc: "jogar bola",
+                id: 7,
             }
         ]
     }
@@ -71,6 +84,12 @@ export default {
     methods:{
         closeWindow(){
             this.$emit('fecharPopUp', true)
+        },
+        descerTask(){
+            console.log(0)
+        },
+        subirTask(){
+            console.log(1)
         }
     },
     components: {
@@ -137,6 +156,12 @@ export default {
     border: 2px solid #000;
     border-radius: 10px;
     padding: 10px;
+    height: clamp(350px, 50vh, 500px);
+    overflow-y: scroll;
+}
+
+.scroll{
+    direction: ltr;
 }
 
 .taskSecundary{
@@ -153,6 +178,7 @@ export default {
     display: flex;
     position: relative;
     right: 0;
+    justify-content: center;
 }
 
 #trash{
@@ -168,7 +194,13 @@ export default {
     transform: scale(1.2);
 } 
 
-#arrow{
+#arrows{
+    display: flex;
+    flex-direction: column;
+    margin: auto 10px auto 10px;
+}
+
+#arrowUp{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,8 +210,22 @@ export default {
     cursor: pointer;
 }
 
-#arrow:hover{
+#arrowUp:hover{
     transform: scale(1.2);
+}
+
+#arrowDown:hover{
+    transform: scale(1.2);
+}
+
+#arrowDown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: auto 10px auto 10px;
+    cursor: pointer;
 }
 
 
