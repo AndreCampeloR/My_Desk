@@ -7,7 +7,7 @@
            <span class="material-symbols-outlined" id="done" >
               done
            </span>
-           <span class="material-symbols-outlined" id="trash">
+           <span class="material-symbols-outlined" id="close">
               close
            </span>
            <span class="material-symbols-outlined" id="config">
@@ -41,7 +41,7 @@
     color: green;
     cursor: pointer;
 }
-#trash{
+#close{
     color: red;
     cursor: pointer;
 }

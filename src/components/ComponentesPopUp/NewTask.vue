@@ -1,7 +1,7 @@
 <template>
     <div id="add-task-background">
         <div id="adding-task" class="">
-            <span class="material-symbols-outlined" id="trash" @click="closeWindow()">
+            <span class="material-symbols-outlined" id="close" @click="closeWindow()">
                 close
             </span>
             <h2 class="">Adicione uma Task</h2>
@@ -19,11 +19,11 @@
 
                     <h3>Prioridade</h3>
 
-                    <div class="radio-option">
+                    <div class="radio-option" >
                         <label for="automatica">
                             Automatica
                         </label>
-                        <input type="radio" name="prioridade-task" id="automatica" v-model="prioridade" value="automatico" class="radio">
+                        <input type="radio" name="prioridade-task" id="automatica" v-model="prioridade" value="automatico" class="radio" checked>
                     </div>
 
                     <div class="radio-option">
@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-#trash{
+#close{
     display: block;
     position: absolute;
     top: 5%;

@@ -3,13 +3,23 @@
         <div id="Secundary-Body">
           <div id="Secundary-header">
             <h3>Tasks Secundárias</h3>
-            <span class="material-symbols-outlined" id="trash" @click="closeWindow()">
+            <span class="material-symbols-outlined" id="close" @click="closeWindow()">
                 close
             </span>
           </div>
-            <form class="form" action="">
-                <Task v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
+            <form class="form scroll" action="">
+                <Task class="taskSecundary" v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
+                    <div id="icons">
+                            <span id="check" class="material-symbols-outlined">check</span>
+                            <span id="trash" class="material-symbols-outlined">delete</span>
 
+                       <div id="arrows">
+    
+                            <span id="arrowUp" @click="subirTask()" class="material-symbols-outlined">expand_less</span>
+                            <span id="arrowDown" @click="descerTask()" class="material-symbols-outlined">expand_more</span>
+                    
+                        </div>
+                    </div>
                 </Task>
             </form>
         </div>     
@@ -39,6 +49,34 @@ export default {
             {
                 desc: "comprar ingresso do show do manuel gomes",
                 id: 3,
+            },
+            {
+                desc: "jogar de ash na ranked",
+                id: 4,
+            },
+            {
+                desc: "comprar carneiro",
+                id: 5,
+            },
+            {
+                desc: "ir na padaria",
+                id: 6,
+            },
+            {
+                desc: "jogar bola",
+                id: 7,
+            },
+            {
+                desc: "comprar carneiro",
+                id: 5,
+            },
+            {
+                desc: "ir na padaria",
+                id: 6,
+            },
+            {
+                desc: "jogar bola",
+                id: 7,
             }
         ]
     }
@@ -46,6 +84,12 @@ export default {
     methods:{
         closeWindow(){
             this.$emit('fecharPopUp', true)
+        },
+        descerTask(){
+            console.log(0)
+        },
+        subirTask(){
+            console.log(1)
         }
     },
     components: {
@@ -95,7 +139,7 @@ export default {
     margin-bottom: 30px;
 }
 
-#trash{
+#close{
     display: block;
     position: absolute;
     top: 5%;
@@ -112,5 +156,91 @@ export default {
     border: 2px solid #000;
     border-radius: 10px;
     padding: 10px;
+    height: clamp(340px, 40vh, 350px);
+    overflow-y: scroll;
 }
+
+.scroll{
+    direction: rtl;
+}
+
+.taskSecundary{
+    border: none;
+    background-color: #D9D9D9;
+    min-height: 35px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold;
+    direction: ltr;
+}
+
+#icons{
+    display: flex;
+    position: relative;
+    right: 0;
+    justify-content: center;
+}
+
+#check{
+    color: green;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#check:hover{
+    transform: scale(1.2);
+}
+
+#trash{
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#trash:hover{
+    transform: scale(1.2);
+} 
+
+#arrows{
+    display: flex;
+    flex-direction: column;
+    margin: auto 10px auto auto;
+}
+
+#arrowUp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: auto 10px auto 10px;
+    cursor: pointer;
+}
+
+#arrowUp:hover{
+    transform: scale(1.2);
+}
+
+#arrowDown:hover{
+    transform: scale(1.2);
+}
+
+#arrowDown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: auto 10px auto 10px;
+    cursor: pointer;
+}
+
+
 </style>
