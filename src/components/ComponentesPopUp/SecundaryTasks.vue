@@ -9,7 +9,16 @@
           </div>
             <form class="form" action="">
                 <Task class="taskSecundary" v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
+                       <div id="icons">
+                            <div id="trash">
+                                <span class="material-symbols-outlined">delete</span>
+                            </div>
 
+                            <div id="arrow">
+                                <span class="material-symbols-outlined">expand_less</span>
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                       </div>
                 </Task>
             </form>
         </div>     
@@ -139,4 +148,39 @@ export default {
     color: #000;
     font-weight: bold;
 }
+
+#icons{
+    display: flex;
+    position: relative;
+    right: 0;
+}
+
+#trash{
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#trash:hover{
+    transform: scale(1.2);
+} 
+
+#arrow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: auto 10px auto 10px;
+    cursor: pointer;
+}
+
+#arrow:hover{
+    transform: scale(1.2);
+}
+
+
 </style>
