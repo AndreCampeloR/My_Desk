@@ -19,11 +19,11 @@
 
                     <h3>Prioridade</h3>
 
-                    <div class="radio-option">
+                    <div class="radio-option" >
                         <label for="automatica">
                             Automatica
                         </label>
-                        <input type="radio" name="prioridade-task" id="automatica" v-model="prioridade" value="automatico" class="radio">
+                        <input type="radio" name="prioridade-task" id="automatica" v-model="prioridade" value="automatico" class="radio" checked>
                     </div>
 
                     <div class="radio-option">

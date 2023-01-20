@@ -160,18 +160,6 @@ export default {
     overflow-y: scroll;
 }
 
-.form::-webkit-scrollbar {
-    width: 15px;
-  }
-  
-.form::-webkit-scrollbar-track {
-    background: rgba(255, 0, 0, 0.61);
-  }
-  
-.form::-webkit-scrollbar-thumb {
-    background-color: rgb(206, 203, 203);
-  }
-
 .scroll{
     direction: rtl;
 }
