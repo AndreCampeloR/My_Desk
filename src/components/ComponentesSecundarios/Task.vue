@@ -4,7 +4,7 @@
 //     desc: "descriocaoTarefa STRING",
 // }
 <template>
-  <div id="task"> 
+  <div class="task"> 
     
      <div id="task-body">
         <p>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-    #task{
+    .task{
         display: flex;
         align-items: center;
         justify-content: space-between;
