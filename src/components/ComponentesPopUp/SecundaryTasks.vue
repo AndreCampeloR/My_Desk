@@ -161,7 +161,7 @@ export default {
 }
 
 .scroll{
-    direction: ltr;
+    direction: rtl;
 }
 
 .taskSecundary{
@@ -172,6 +172,7 @@ export default {
     margin-bottom: 10px;
     color: #000;
     font-weight: bold;
+    direction: ltr;
 }
 
 #icons{
