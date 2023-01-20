@@ -10,7 +10,7 @@
             <form class="form scroll" action="">
                 <Task class="taskSecundary" v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
                     <div id="icons">
-                        
+                            <span id="check" class="material-symbols-outlined">check</span>
                             <span id="trash" class="material-symbols-outlined">delete</span>
 
                        <div id="arrows">
@@ -156,9 +156,21 @@ export default {
     border: 2px solid #000;
     border-radius: 10px;
     padding: 10px;
-    height: clamp(350px, 50vh, 500px);
+    height: clamp(340px, 40vh, 350px);
     overflow-y: scroll;
 }
+
+.form::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+.form::-webkit-scrollbar-track {
+    background: rgba(255, 0, 0, 0.61);
+  }
+  
+.form::-webkit-scrollbar-thumb {
+    background-color: rgb(206, 203, 203);
+  }
 
 .scroll{
     direction: rtl;
@@ -182,6 +194,19 @@ export default {
     justify-content: center;
 }
 
+#check{
+    color: green;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#check:hover{
+    transform: scale(1.2);
+}
+
 #trash{
     color: #ff0000;
     display: flex;
@@ -198,7 +223,7 @@ export default {
 #arrows{
     display: flex;
     flex-direction: column;
-    margin: auto 10px auto 10px;
+    margin: auto 10px auto auto;
 }
 
 #arrowUp{
