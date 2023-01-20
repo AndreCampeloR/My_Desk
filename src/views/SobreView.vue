@@ -14,8 +14,8 @@
 
 <script>
 
-import Nav from '../components/Nav.vue'
-import Footer from '../components/Footer.vue'
+import Nav from '../components/ComponentesPrincipais/Nav.vue';
+import Footer from '../components/ComponentesPrincipais/Footer.vue'
 
 export default {
   name: 'Sobre',
