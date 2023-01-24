@@ -1,11 +1,7 @@
 <template>
   <div class="main-container">
     <Nav/>
-    <main>
-    <h1>GRAFICOS AQUI</h1>
-    <h2>GRAFICOS AQUI</h2>
-    <h2>GRAFICOS AQUI</h2>
-    </main>
+    
     <Footer/>
   </div>
 </template>
