@@ -171,7 +171,7 @@ export default {
     border-radius: 5px;
     margin-bottom: 10px;
     color: #000;
-    font-weight: bold;
+    font-weight: 700;
     direction: ltr;
 }
 
@@ -186,7 +186,7 @@ export default {
     color: green;
     display: flex;
     align-items: center;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     margin: 10px;
 }
@@ -200,7 +200,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
 }
 

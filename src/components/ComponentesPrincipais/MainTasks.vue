@@ -21,15 +21,15 @@ export default {
     return{
         lista: [
             {
-                desc: "fazer tarefa",
+                desc: "Corrigir bugfix/2697",
                 id: 1,
             },
             {
-                desc: "comprar cenoura",
+                desc: "Entregar relatorio mensal",
                 id: 2,
             },
             {
-                desc: "vender banana",
+                desc: "Criação dos graficos live mensal",
                 id: 3,
             }
         ],
