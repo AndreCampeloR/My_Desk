@@ -31,11 +31,13 @@ export default createStore({
     },
 
     async LogIn({commit}, User) {
-      const response = await api.post("login", {
+      api.post("login", {
         email: "campelo@gmail.com",
         password: "campelo123"
+      }).then(response => {
+        console.log(response.data)
       })
-      commit('UpdateJwtCode', response)
+      //commit('UpdateJwtCode', response.data) 
       // await axios.post('login', User)
       // await commit('setUser', User.get('username'))
       // 
