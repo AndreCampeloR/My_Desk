@@ -2,11 +2,7 @@
   <div class="main-container">
     <Nav/>
     <main>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      Aperiam odio nemo laboriosam hic 
-      assumenda dicta expedita repellat ipsum eligendi sed corrupti,
-      fugiat excepturi incidunt? Quasi veniam 
-      aliquam nostrum fuga quia!</p>
+      <p v-for="item in this.$store.state.tasks" :key="item">{{item}}</p>
     </main>
     <Footer/>
   </div>
