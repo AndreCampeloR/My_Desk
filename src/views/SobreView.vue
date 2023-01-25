@@ -2,7 +2,8 @@
   <div class="main-container">
     <Nav/>
     <main>
-      <p v-for="item in this.$store.state.tasks" :key="item">{{item}}</p>
+      <p>{{this.$store.state.jwt}}</p>
+      <button @click="this.$store.dispatch('LogIn')">Click</button>
     </main>
     <Footer/>
   </div>
@@ -18,6 +19,11 @@ export default {
   components: {
     Nav,
     Footer
+  },
+  data(){
+    return {
+      teste: "sou lindo"
+    }
   }
 }
 </script>
