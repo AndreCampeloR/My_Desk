@@ -20,8 +20,12 @@
 
     <section id="estudo">
       <div id="divEstudo">
-         <h2>O estudo</h2>
-             <p></p>
+         <h2>Sobre o estudo</h2>
+             <p>A metodologia foi criada por Leo Babauta em 2005,</p>
+             <p>ele defende a criação de 4 hábitos produtivos para uma vida mais organizada, sendo elas</p>
+             <p class="negrito">Capture, Processe, Planeje e Faça</p>
+             <p>A proposta é que seja definido três tarefas de maior prioridade para ser realizada no dia,</p>
+             <p>não podendo realizar as demais até que as 3 estejam finalizadas</p>
       </div>
 
       <div id="divImgEstudo">
@@ -50,22 +54,26 @@ export default {
   components: {
     Nav,
     Footer
-  }
+  },
 }
 </script>
 
 <style scoped>
 
 h2{
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   font-weight: bold;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 p{
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   margin: 5px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.negrito{
+    font-weight: bold;
 }
 
 section{
@@ -78,28 +86,19 @@ section{
   margin: 30px auto;
 }
 
-#sobre div{
+#sobre div, #estudo div{
   width: 45%;
 }
 
-#divImgSobre{
+#divImgSobre, #divImgEstudo{
   display: flex;
   justify-content: center;
 }
 
-#divImgSobre img{
-  width: 400px;
+#divImgSobre img, #divImgEstudo img{
+  width: 450px;
 }
 
-#estudo{
-  flex-direction: column;
-}
-
-#divEstudo{
-  width: 36%;
-  display: flex;
-  justify-content: right;
-}
 
 #footer{
   position: sticky;
