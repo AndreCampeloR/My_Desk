@@ -4,10 +4,15 @@ export default createStore({
   state: {
     user: null,
     posts: null,
+    tasks: ["eu", "Sou", "Foda"]
   },
   getters: {
   },
   mutations: {
+    AddItem(state, item)
+    {
+      state.tasks.push("testando")
+    }
   },
   actions: {
     async Register({dispatch}, form) {
