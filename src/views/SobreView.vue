@@ -39,6 +39,7 @@
       <h2>proposta</h2>
       <h2></h2>
     </section>
+
     </main>
     <Footer id="footer"/>
   </div>
