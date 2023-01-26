@@ -1,17 +1,24 @@
 import { createStore } from 'vuex'
+import api from "../services/services"
 
 export default createStore({
   state: {
     user: null,
     posts: null,
-    tasks: ["eu", "Sou", "Foda"]
+    jwt: null,
+    tasks: []
   },
   getters: {
   },
   mutations: {
-    AddItem(state, item)
+    RefreshTasksList(state, item)
     {
-      state.tasks.push("testando")
+      state.tasks = item
+    },
+
+    UpdateJwtCode(state, jwt)
+    {
+      state.jwt = jwt
     }
   },
   actions: {
@@ -24,8 +31,16 @@ export default createStore({
     },
 
     async LogIn({commit}, User) {
-      await axios.post('login', User)
-      await commit('setUser', User.get('username'))
+      api.post("login", {
+        email: "campelo@gmail.com",
+        password: "campelo123"
+      }).then(response => {
+        console.log(response.data)
+      })
+      //commit('UpdateJwtCode', response.data) 
+      // await axios.post('login', User)
+      // await commit('setUser', User.get('username'))
+      // 
     },
     
   },

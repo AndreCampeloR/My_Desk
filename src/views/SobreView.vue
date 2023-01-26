@@ -2,7 +2,6 @@
   <div class="main-container">
     <Nav/>
     <main>
-
     <section id="sobre">
       <div class="divSobre">
         <h2>Sobre o Projeto</h2>
@@ -39,7 +38,6 @@
       <h2>proposta</h2>
       <h2></h2>
     </section>
-
     </main>
     <Footer id="footer"/>
   </div>
