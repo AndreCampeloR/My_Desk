@@ -1,7 +1,6 @@
 <template>
   <div class="main-container">
     <Nav/>
-      <h1>Em Breve</h1>
     <Footer/>
   </div>
 </template>

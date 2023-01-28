@@ -18,7 +18,7 @@ export default createStore({
 
     UpdateJwtCode(state, jwt)
     {
-      state.jwt = jwt
+      state.jwt = jwt.jwtToken
     }
   },
   actions: {
@@ -30,12 +30,13 @@ export default createStore({
       await dispatch('LogIn', UserForm)
     },
 
-    async LogIn({commit}, User) {
+    async LogIn({commit}) {
       const response = await api.post("login", {
         email: "campelo@gmail.com",
         password: "campelo123"
       })
-      commit('UpdateJwtCode', response)
+      console.log(response.data)
+      commit('UpdateJwtCode', response.data)
       // await axios.post('login', User)
       // await commit('setUser', User.get('username'))
       // 
