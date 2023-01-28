@@ -8,11 +8,11 @@
         </header>
         <main class="main-init">
             <h2>Login</h2>
-            <form action="">
+            <form @submit.prevent="LogIn(login)">
                 <label for="emailInput">E-Mail</label>
-                <input type="email" required placeholder="E-Mail" id="emailInput">
+                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="login.email">
                 <label for="password">Senha</label>
-                <input type="password" required placeholder="Senha" id="password">
+                <input type="password" required placeholder="Senha" id="password" v-model="login.password">
                 <router-link :to="{name: 'registro'}">Criar cadastro</router-link>
                 <input type="submit" value="Entrar" id="submit">
             </form>
@@ -27,8 +27,21 @@ export default {
     data(){
         return{
             login:{
-                emailLogin: '',
-                passwordLogin: '',
+                email: '',
+                password: '',
+            }
+        }
+    },
+    methods: {
+        async LogIn(data) {
+            try
+            {
+                const response = await this.$store.state.api.post("login", data)
+                commit('UpdateJwtCode', response.data)
+            }
+            catch(error)
+            {
+                console.log(error.response.data)
             }
         }
     }
@@ -91,6 +104,7 @@ export default {
        border: none;
        outline: none;
        font-family: 'Oswald', sans-serif;
+       z-index: 1;
     }
     input:focus-within{
         box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.249);

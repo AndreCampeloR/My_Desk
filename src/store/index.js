@@ -3,6 +3,7 @@ import api from "../services/services"
 
 export default createStore({
   state: {
+    api: api,
     user: null,
     posts: null,
     jwt: null,
@@ -16,9 +17,9 @@ export default createStore({
       state.tasks = item
     },
 
-    UpdateJwtCode(state, jwt)
+    UpdateJwtCode(state, login)
     {
-      state.jwt = jwt.jwtToken
+      state.jwt = login.jwtToken
     }
   },
   actions: {
@@ -30,18 +31,19 @@ export default createStore({
       await dispatch('LogIn', UserForm)
     },
 
-    async LogIn({commit}) {
-      const response = await api.post("login", {
-        email: "campelo@gmail.com",
-        password: "campelo123"
-      })
-      console.log(response.data)
-      commit('UpdateJwtCode', response.data)
-
-      //commit('UpdateJwtCode', response.data) 
-      // await axios.post('login', User)
-      // await commit('setUser', User.get('username'))
-      // 
+    async LogIn({commit}, data) {
+      try
+      {
+        const response = await api.post("login", data)
+        console.log(response.status)
+        commit('UpdateJwtCode', response.data)
+      }
+      catch(error)
+      {
+        console.log(error.response.data)
+      }
+                    
+      
     },
     
   },
