@@ -34,9 +34,13 @@ export default createStore({
       const response = await api.post("login", {
         email: "campelo@gmail.com",
         password: "campelo123"
+      }).then(response => {
+        console.log(response.data)
       })
       console.log(response.data)
       commit('UpdateJwtCode', response.data)
+
+      //commit('UpdateJwtCode', response.data) 
       // await axios.post('login', User)
       // await commit('setUser', User.get('username'))
       // 

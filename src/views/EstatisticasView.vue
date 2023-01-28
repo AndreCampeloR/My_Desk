@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
     <Nav/>
+      <button @click="this.$store.dispatch('LogIn')">click</button>
     <Footer/>
   </div>
 </template>
