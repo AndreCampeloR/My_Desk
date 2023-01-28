@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <Nav/>
-      <button @click="this.$store.dispatch('LogIn')">click</button>
+      <button @click="this.$store.dispatch('LogIn')">Click</button>
     <Footer/>
   </div>
 </template>
