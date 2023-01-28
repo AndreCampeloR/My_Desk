@@ -14,6 +14,8 @@ import Sobre from '../views/SobreView.vue'
 
 import notFoundPage from '../views/NotFoundPageView.vue'
 
+import store from '@/store'
+
 const routes = [
   {
     path: '/login',
@@ -55,6 +57,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if(from.name === 'login' || from.name == 'registro')
+  {
+    next()
+  }
+  
 })
 
 export default router

@@ -14,6 +14,7 @@
                 <label for="password">Senha</label>
                 <input type="password" required placeholder="Senha" id="password" v-model="login.password">
                 <router-link :to="{name: 'registro'}">Criar cadastro</router-link>
+                <span v-if="erros.length > 0" class="erro-span">{{erros[0]}}</span>
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -29,7 +30,8 @@ export default {
             login:{
                 email: '',
                 password: '',
-            }
+            },
+            erros: []
         }
     },
     methods: {
@@ -37,11 +39,13 @@ export default {
             try
             {
                 const response = await this.$store.state.api.post("login", data)
-                commit('UpdateJwtCode', response.data)
+                this.$store.commit('UpdateJwtCode', response.data)
+                this.$router.push('/')
             }
-            catch(error)
+            catch(erro)
             {
-                console.log(error.response.data)
+                console.log(erro.response.data.erros.length)
+                this.erros = erro.response.data.erros
             }
         }
     }
@@ -153,5 +157,9 @@ export default {
         text-decoration: underline;
         font-size: 15px;
         z-index: 1;
+    }
+
+    .erro-span{
+        color: red;
     }
 </style>

@@ -23,28 +23,28 @@ export default createStore({
     }
   },
   actions: {
-    async Register({dispatch}, form) {
-      await axios.post('usuario', form)
-      let UserForm = new FormData()
-      UserForm.append('email', form.email)
-      UserForm.append('password', form.password)
-      await dispatch('LogIn', UserForm)
-    },
-
-    async LogIn({commit}, data) {
+    async verifyUser(){
+      if(this.state.jwt === null)
+      {
+        console.log(this.state.jwt)
+        return false
+      }
       try
       {
-        const response = await api.post("login", data)
-        console.log(response.status)
-        commit('UpdateJwtCode', response.data)
+        response = await api.get('/usuario', {
+          headers: {
+            'Authorization': 'Bearer'+this.state.jwt
+          }
+        })
+        console.log(response)
+        return true
       }
-      catch(error)
+      catch
       {
-        console.log(error.response.data)
+        return false
       }
-                    
       
-    },
+    }
     
   },
   modules: {
