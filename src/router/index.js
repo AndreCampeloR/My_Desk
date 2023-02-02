@@ -16,6 +16,7 @@ import notFoundPage from '../views/NotFoundPageView.vue'
 
 import store from '@/store'
 
+
 const routes = [
   {
     path: '/login',
@@ -59,12 +60,25 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  if(from.name === 'login' || from.name == 'registro')
-  {
+router.beforeEach((from, to, next) => {
+  store.commit('GetJwtAtLocalStorage')
+  let jwtCode = store.state.jwt
+
+  // console.log("-------------- to --------------")
+  // for (const item in to) {
+  //   console.log(item + " = " + to[item])
+  // }
+  // console.log("-------------- from --------------")
+  // for (const item in from) {
+  //   console.log(item + " = " + from[item])
+  // }
+
+  if(jwtCode == undefined) {
+    next({ name: 'registro' }) || next({ name: 'login' }) 
+  }
+  else{
     next()
   }
-  
 })
 
 export default router

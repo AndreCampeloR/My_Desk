@@ -39,7 +39,7 @@ export default {
             try
             {
                 const response = await this.$store.state.api.post("login", data)
-                this.$store.commit('UpdateJwtCode', response.data)
+                this.$store.commit('SetJwtAtLocalStorage', response.data.jwtToken)
                 this.$router.push('/')
             }
             catch(erro)

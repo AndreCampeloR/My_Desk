@@ -10,6 +10,9 @@ export default createStore({
     tasks: []
   },
   getters: {
+    jwtToken(state){
+      return "Bearer "+state.jwt
+    }
   },
   mutations: {
     RefreshTasksList(state, item)
@@ -20,14 +23,30 @@ export default createStore({
     UpdateJwtCode(state, login)
     {
       state.jwt = login.jwtToken
+    },
+
+    SetJwtAtLocalStorage(state, jwt)
+    {
+      localStorage.setItem('jwtCode', JSON.stringify(jwt))
+      state.jwt = jwt
+    },
+
+    GetJwtAtLocalStorage(state)
+    {
+      let jwt = localStorage.getItem('jwtCode')
+      if(jwt == "undefined"){
+        state.jwt = undefined
+      }
+      else{
+        state.jwt = JSON.parse(jwt)
+      }
     }
   },
   actions: {
     async verifyUser(){
       if(this.state.jwt === null)
       {
-        console.log(this.state.jwt)
-        return false
+        return
       }
       try
       {

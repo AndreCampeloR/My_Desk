@@ -41,7 +41,8 @@ export default {
         async Register(data) {
             try
             {
-               const response = await this.$store.state.api.post('/cadastro', data) 
+               const response = await this.$store.state.api.post('/cadastro', data)
+               localStorage.setItem('jwtCode', JSON.stringify(response.data.jwtToken)) 
                this.$store.commit('UpdateJwtCode', response.data)
                this.$router.push('/')
             }
