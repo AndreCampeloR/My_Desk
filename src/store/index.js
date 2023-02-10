@@ -34,32 +34,42 @@ export default createStore({
     GetJwtAtLocalStorage(state)
     {
       let jwt = localStorage.getItem('jwtCode')
-      if(jwt == "undefined"){
-        state.jwt = undefined
-      }
-      else{
+      try{
         state.jwt = JSON.parse(jwt)
       }
+      catch{
+        state.jwt = null
+      }
+        
+      
     }
   },
   actions: {
-    async verifyUser(){
+    async isAuth(){
+      this.commit('GetJwtAtLocalStorage')
+
       if(this.state.jwt === null)
       {
-        return
+        return false
       }
+      
       try
       {
-        response = await api.get('/usuario', {
+        let response = await api.get('/validateJwt', {
           headers: {
-            'Authorization': 'Bearer'+this.state.jwt
+            'Authorization': 'Bearer '+this.state.jwt
           }
         })
-        console.log(response)
-        return true
+
+        if(response.status === 200)
+        {
+          return true
+        }
+        return false
       }
-      catch
+      catch(erro)
       {
+        console.log(erro)
         return false
       }
       

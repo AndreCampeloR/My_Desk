@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import api from '../services/services.js'
+import axios from 'axios'
 
 import Login from '../views/LoginView.vue'
 
@@ -31,27 +33,48 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Tasks
+    component: Tasks,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/configuracoes',
     name: 'configuracoes',
-    component: Configuracoes
+    component: Configuracoes,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/estatisticas',
     name: 'estatisticas',
-    component: Estatisticas
+    component: Estatisticas,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/sobre',
     name: 'sobre',
-    component: Sobre
+    component: Sobre,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: "/:catchAll(.*)",
     name: 'notFound',
-    component: notFoundPage
+    component: notFoundPage,
+    meta:{
+      requiresAuth: true
+    }
+      
+    
   }
 ]
 
@@ -60,25 +83,21 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((from, to, next) => {
-  store.commit('GetJwtAtLocalStorage')
-  let jwtCode = store.state.jwt
+router.beforeEach( async (from, to, next) => {
+    let isAuth = await store.dispatch("isAuth")
+    const requiresAuth = to.matched.some(p => p.meta.requiresAuth)
+    console.log(to)
+    console.log("isAuth:"+ isAuth + "\nrequiresAuth: "+ requiresAuth)
 
-  // console.log("-------------- to --------------")
-  // for (const item in to) {
-  //   console.log(item + " = " + to[item])
-  // }
-  // console.log("-------------- from --------------")
-  // for (const item in from) {
-  //   console.log(item + " = " + from[item])
-  // }
-
-  if(jwtCode == undefined) {
-    next({ name: 'registro' }) || next({ name: 'login' }) 
+    if(isAuth == false && requiresAuth == true)
+    {
+      alert('É necessario logar para proseguir')
+      next('/login')
+    }
+    else{
+        next()
+    }
   }
-  else{
-    next()
-  }
-})
+)
 
 export default router
