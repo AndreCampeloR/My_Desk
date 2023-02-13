@@ -8,12 +8,13 @@
         </header>
         <main class="main-init">
             <h2>Login</h2>
-            <form action="">
+            <form @submit.prevent="LogIn(login)">
                 <label for="emailInput">E-Mail</label>
-                <input type="email" required placeholder="E-Mail" id="emailInput">
+                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="login.email">
                 <label for="password">Senha</label>
-                <input type="password" required placeholder="Senha" id="password">
+                <input type="password" required placeholder="Senha" id="password" v-model="login.password">
                 <router-link :to="{name: 'registro'}">Criar cadastro</router-link>
+                <span v-if="erros.length > 0" class="erro-span">{{erros[0]}}</span>
                 <input type="submit" value="Entrar" id="submit">
             </form>
         </main>
@@ -27,8 +28,24 @@ export default {
     data(){
         return{
             login:{
-                emailLogin: '',
-                passwordLogin: '',
+                email: '',
+                password: '',
+            },
+            erros: []
+        }
+    },
+    methods: {
+        async LogIn(data) {
+            try
+            {
+                const response = await this.$store.state.apiConfigs.api.post("login", data)
+                this.$store.commit('SetJwtAtLocalStorage', response.data.jwtToken)
+                this.$router.push('/')
+            }
+            catch(erro)
+            {
+                console.log(erro.response.data.erros.length)
+                this.erros = erro.response.data.erros
             }
         }
     }
@@ -91,6 +108,7 @@ export default {
        border: none;
        outline: none;
        font-family: 'Oswald', sans-serif;
+       z-index: 1;
     }
     input:focus-within{
         box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.249);
@@ -139,5 +157,9 @@ export default {
         text-decoration: underline;
         font-size: 15px;
         z-index: 1;
+    }
+
+    .erro-span{
+        color: red;
     }
 </style>

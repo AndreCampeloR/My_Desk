@@ -3,45 +3,96 @@ import api from "../services/services"
 
 export default createStore({
   state: {
-    user: null,
-    posts: null,
-    jwt: null,
-    tasks: []
+    apiConfigs: {
+      api: api
+    },
+
+    user:{
+      email: null,
+      jwt: null,
+    },
+    
+    task:{
+      taskList: []
+    }
   },
+
   getters: {
   },
+
   mutations: {
     RefreshTasksList(state, item)
     {
-      state.tasks = item
+      state.task.taskList = item
     },
 
-    UpdateJwtCode(state, jwt)
+    SetJwtAtLocalStorage(state, jwt)
     {
-      state.jwt = jwt
+      localStorage.setItem('jwtCode', JSON.stringify(jwt))
+      state.user.jwt = jwt
+    },
+
+    GetJwtAtLocalStorage(state)
+    {
+      let jwt = localStorage.getItem('jwtCode')
+      try{
+        state.user.jwt = JSON.parse(jwt)
+      }
+      catch{
+        state.user.jwt = null
+      }
+    },
+    updateTaskList(state, list)
+    {
+      console.log(list)
+      state.task.taskList = list
+      console.log(state.task.taskList)
     }
   },
+
   actions: {
-    async Register({dispatch}, form) {
-      await axios.post('usuario', form)
-      let UserForm = new FormData()
-      UserForm.append('email', form.email)
-      UserForm.append('password', form.password)
-      await dispatch('LogIn', UserForm)
+    async isAuth(){
+      // REFATORAR
+      this.commit('GetJwtAtLocalStorage')
+      try
+      {
+        let response = await this.state.apiConfigs.api.get('/validateJwt', {
+          headers: {
+            'Authorization': "Bearer "+this.state.user.jwt
+          }
+        })
+
+        if(response.status !== 200)
+        {
+          return false
+        }
+
+        return true
+      }
+      catch(erro)
+      {
+        console.log(erro)
+        return false
+      }
     },
 
-    async LogIn({commit}, User) {
-      response = await api.post("login", {
-        email: "campelo@gmail.com",
-        password: "campelo123"
+    async postTask(){
+      let response = await this.state.apiConfigs.api.post('/task', {
+        headers: {
+            'Authorization': "Bearer "+this.state.user.jwt
+        }
       })
-      console.log(response.data)
-      //commit('UpdateJwtCode', response.data) 
-      // await axios.post('login', User)
-      // await commit('setUser', User.get('username'))
-      // 
     },
-    
+
+    async getTasks(){
+      let response = await this.state.apiConfigs.api.get('/task', {
+        headers: {
+            'Authorization': "Bearer "+this.state.user.jwt
+        }
+      })
+      console.log(this.state.task.taskList)
+      this.commit("updateTaskList", response.data)
+    }
   },
   modules: {
   }

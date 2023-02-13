@@ -7,17 +7,24 @@
             </span>
         </header>
         <main class="main-init">
+
             <h2>Cadastro</h2>
-            <form action="">
+            <form @submit.prevent="Register(register)">
                 <label for="emailInput">E-Mail</label>
-                <input type="email" required placeholder="E-Mail" id="emailInput">
+                <input type="email" required placeholder="E-Mail" id="emailInput" v-model="register.email">
+
                 <label for="password">Senha</label>
-                <input type="password" required placeholder="Senha" id="password">
-                <label for="password">Confirmar Senha</label>
-                <input type="password" required placeholder="Confirmar Senha" id="password">
+                <input type="password" required placeholder="Senha" id="password" v-model="register.password">
+
+                <label for="confirmPassword">Confirmar Senha</label>
+                <input type="password" required placeholder="Confirmar Senha" id="confirmPassword" v-model="register.confirmPassword">
+
                 <router-link :to="{name: 'login'}">Fazer login</router-link>
+
+                <span v-if="erros.length > 0" class="erro-span">{{erros[0]}}</span>
                 <input type="submit" value="Criar conta" id="submit">
             </form>
+
         </main>
         <span id="bg-light"></span>
     </div>
@@ -25,7 +32,36 @@
 
 <script>
 export default {
-    name: "RegisterView"
+    name: "RegisterView",
+    data(){
+        return{
+            register:{
+                email: '',
+                password: '',
+                confirmPassword: ''
+            },
+            erros: []
+        }
+    },
+    methods: {
+        async Register(data) {
+            try
+            {
+               const response = await this.$store.state.apiConfigs.api.post('/cadastro', data)
+
+               this.$store.commit('SetJwtAtLocalStorage', response.data.jwtToken)
+
+               this.$router.push('/')
+            }
+            catch(erro)
+            {
+                console.log(erro.response.data.erros.length)
+                this.erros = erro.response.data.erros
+            }
+            
+            
+        }
+    }
 }
 </script>
 
@@ -84,6 +120,7 @@ input{
    border: none;
    outline: none;
    font-family: 'Oswald', sans-serif;
+   z-index: 1;
 }
 input:focus-within{
     box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.249);
@@ -104,7 +141,7 @@ label{
 #submit:hover{
     transform: scale(1.05);
 }
-#password, #emailInput{
+#password, #emailInput, #confirmPassword{
     width: clamp(200px, 20vw, 290px);
     margin: 6px;
     padding: 0 7px;
@@ -132,5 +169,8 @@ a{
     text-decoration: underline;
     font-size: 15px;
     z-index: 1;
+}
+.erro-span{
+    color: red;
 }
 </style>

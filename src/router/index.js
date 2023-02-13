@@ -14,6 +14,9 @@ import Sobre from '../views/SobreView.vue'
 
 import notFoundPage from '../views/NotFoundPageView.vue'
 
+import store from '@/store'
+
+
 const routes = [
   {
     path: '/login',
@@ -28,27 +31,48 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Tasks
+    component: Tasks,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/configuracoes',
     name: 'configuracoes',
-    component: Configuracoes
+    component: Configuracoes,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/estatisticas',
     name: 'estatisticas',
-    component: Estatisticas
+    component: Estatisticas,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: '/sobre',
     name: 'sobre',
-    component: Sobre
+    component: Sobre,
+    meta:{
+      requiresAuth: true
+    }
+  
   },
   {
     path: "/:catchAll(.*)",
     name: 'notFound',
-    component: notFoundPage
+    component: notFoundPage,
+    meta:{
+      requiresAuth: true
+    }
+      
+    
   }
 ]
 
@@ -56,5 +80,22 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach( 
+  async (to, from, next) => {
+
+    let isAuth = await store.dispatch("isAuth")
+    
+    const requiresAuth = to.matched.some(p => p.meta.requiresAuth)
+
+    if(!isAuth && requiresAuth)
+    {
+      next('/login')
+    }
+    else{
+        next()
+    }
+  }
+)
 
 export default router
