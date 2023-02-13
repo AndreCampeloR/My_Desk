@@ -5,6 +5,7 @@
         <h1 class="">Main TASKs</h1>
           <MainTasks/>
           <DangerZoneTasks/>
+
           <div class="btns">
              <button id="btnAdicionar" @click="showAddTaskWindow = !showAddTaskWindow">
              <span class="material-symbols-outlined">add_circle</span>
@@ -15,8 +16,10 @@
              </button>
           </div>
       </main>
+
       <NewTask v-if="showAddTaskWindow" @fecharPopUp="showAddTaskWindow=false"/>
       <SecundaryTasks v-if="showSecundaryTasksWindow" @fecharPopUp="showSecundaryTasksWindow=false"/>
+      
     <Footer/>
   </div>
 </template>

@@ -1,18 +1,22 @@
 <template>
     <div id="add-task-background">
-        <div id="adding-task" class="">
+        <div id="adding-task">
+
             <span class="material-symbols-outlined" id="close" @click="closeWindow()">
                 close
             </span>
-            <h2 class="">Adicione uma Task</h2>
-            <form @action.prevent="">
+            <h2>Adicione uma Task</h2>
 
-                <label for="type-task" class="input-div">
+            <form @submit.prevent="addTask(task)">
+
+                <label for="tipo-task" class="input-div">
                     <h3>Tipo de Task</h3>
-                    <select name="type-task" id="type-task" class="select">
+
+                    <select name="tipo-task" id="tipo-task" class="select" v-model="task.TipoTask" required>
                         <option value="normal">Normal</option>
-                        <option value="emergencial">Emergencial</option>
+                        <option value="emergencial">Emergêncial</option>
                     </select>
+
                 </label>
 
                 <div id="prioridade-container" class="input-div">
@@ -23,25 +27,25 @@
                         <label for="automatica">
                             Automatica
                         </label>
-                        <input type="radio" name="prioridade-task" id="automatica" v-model="prioridade" value="automatico" class="radio" checked>
+                        <input type="radio" name="prioridade-task" id="automatica" value="automatico" class="radio" checked v-model="tipoPrioridade">
                     </div>
 
                     <div class="radio-option">
                         <label for="manual">
                             Manual
                         </label>
-                        <input type="radio" name="prioridade-task" id="manual" v-model="prioridade" value="manual" class="radio">
+                        <input type="radio" name="prioridade-task" id="manual" value="manual" class="radio" v-model="tipoPrioridade">
                     </div>
-                    <input type="number" name="prioridade" id="prioridade-number" value="0" v-show="prioridadeIsManual">
 
+                    <input type="number" name="prioridade" id="prioridade-number" v-model="task.Prioridade" v-show="prioridadeIsManual()" min="0">
                 </div>
                 
                 <label for="task-text" class="input-div">
                     <h3>Insira a tarefa</h3>
-                    <input type="text" name="TaskText" id="task-text" maxlength="50" class="input is-small">
+                    <input type="text" name="TaskText" id="task-text" maxlength="50" class="input is-small" v-model="task.Descricao" required>
                 </label>
 
-                <input type="button" value="Criar Tarefa" id="create-task" class="button is-success">
+                <input type="submit" value="Criar Tarefa" id="create-task" class="button is-success">
             </form>
         </div>
     </div>
@@ -52,17 +56,25 @@ export default {
     name: 'NewTask',
     data(){
         return{
-            prioridade: " "
-        }
-    },
-    computed: {
-        prioridadeIsManual(){
-            return this.prioridade === "manual" 
+            task:{
+                Prioridade: 0,
+                Descricao: "",   
+                TipoTask: ""
+            },
+            tipoPrioridade: '',
         }
     },
     methods:{
+        prioridadeIsManual(){
+            return this.tipoPrioridade === "manual" 
+        },
+
         closeWindow(){
             this.$emit('fecharPopUp', true)
+        },
+
+        async addTask(content){
+            await this.$store.dispatch("postTask", content)
         }
     }
 }

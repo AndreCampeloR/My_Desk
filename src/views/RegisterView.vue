@@ -7,18 +7,24 @@
             </span>
         </header>
         <main class="main-init">
+
             <h2>Cadastro</h2>
             <form @submit.prevent="Register(register)">
                 <label for="emailInput">E-Mail</label>
                 <input type="email" required placeholder="E-Mail" id="emailInput" v-model="register.email">
+
                 <label for="password">Senha</label>
                 <input type="password" required placeholder="Senha" id="password" v-model="register.password">
+
                 <label for="confirmPassword">Confirmar Senha</label>
                 <input type="password" required placeholder="Confirmar Senha" id="confirmPassword" v-model="register.confirmPassword">
+
                 <router-link :to="{name: 'login'}">Fazer login</router-link>
+
                 <span v-if="erros.length > 0" class="erro-span">{{erros[0]}}</span>
                 <input type="submit" value="Criar conta" id="submit">
             </form>
+
         </main>
         <span id="bg-light"></span>
     </div>
@@ -41,9 +47,10 @@ export default {
         async Register(data) {
             try
             {
-               const response = await this.$store.state.api.post('/cadastro', data)
-               localStorage.setItem('jwtCode', JSON.stringify(response.data.jwtToken)) 
-               this.$store.commit('UpdateJwtCode', response.data)
+               const response = await this.$store.state.apiConfigs.api.post('/cadastro', data)
+
+               this.$store.commit('SetJwtAtLocalStorage', response.data.jwtToken)
+
                this.$router.push('/')
             }
             catch(erro)

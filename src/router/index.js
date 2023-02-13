@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import api from '../services/services.js'
-import axios from 'axios'
 
 import Login from '../views/LoginView.vue'
 
@@ -83,15 +81,15 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach( async (from, to, next) => {
-    let isAuth = await store.dispatch("isAuth")
-    const requiresAuth = to.matched.some(p => p.meta.requiresAuth)
-    console.log(to)
-    console.log("isAuth:"+ isAuth + "\nrequiresAuth: "+ requiresAuth)
+router.beforeEach( 
+  async (to, from, next) => {
 
-    if(isAuth == false && requiresAuth == true)
+    let isAuth = await store.dispatch("isAuth")
+    
+    const requiresAuth = to.matched.some(p => p.meta.requiresAuth)
+
+    if(!isAuth && requiresAuth)
     {
-      alert('É necessario logar para proseguir')
       next('/login')
     }
     else{

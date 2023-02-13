@@ -38,7 +38,7 @@ export default {
         async LogIn(data) {
             try
             {
-                const response = await this.$store.state.api.post("login", data)
+                const response = await this.$store.state.apiConfigs.api.post("login", data)
                 this.$store.commit('SetJwtAtLocalStorage', response.data.jwtToken)
                 this.$router.push('/')
             }

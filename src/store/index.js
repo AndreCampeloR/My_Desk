@@ -3,78 +3,96 @@ import api from "../services/services"
 
 export default createStore({
   state: {
-    api: api,
-    user: null,
-    posts: null,
-    jwt: null,
-    tasks: []
-  },
-  getters: {
-    jwtToken(state){
-      return "Bearer "+state.jwt
+    apiConfigs: {
+      api: api
+    },
+
+    user:{
+      email: null,
+      jwt: null,
+    },
+    
+    task:{
+      taskList: []
     }
   },
+
+  getters: {
+  },
+
   mutations: {
     RefreshTasksList(state, item)
     {
-      state.tasks = item
-    },
-
-    UpdateJwtCode(state, login)
-    {
-      state.jwt = login.jwtToken
+      state.task.taskList = item
     },
 
     SetJwtAtLocalStorage(state, jwt)
     {
       localStorage.setItem('jwtCode', JSON.stringify(jwt))
-      state.jwt = jwt
+      state.user.jwt = jwt
     },
 
     GetJwtAtLocalStorage(state)
     {
       let jwt = localStorage.getItem('jwtCode')
       try{
-        state.jwt = JSON.parse(jwt)
+        state.user.jwt = JSON.parse(jwt)
       }
       catch{
-        state.jwt = null
+        state.user.jwt = null
       }
-        
-      
+    },
+    updateTaskList(state, list)
+    {
+      console.log(list)
+      state.task.taskList = list
+      console.log(state.task.taskList)
     }
   },
+
   actions: {
     async isAuth(){
+      // REFATORAR
       this.commit('GetJwtAtLocalStorage')
-
-      if(this.state.jwt === null)
-      {
-        return false
-      }
-      
       try
       {
-        let response = await api.get('/validateJwt', {
+        let response = await this.state.apiConfigs.api.get('/validateJwt', {
           headers: {
-            'Authorization': 'Bearer '+this.state.jwt
+            'Authorization': "Bearer "+this.state.user.jwt
           }
         })
 
-        if(response.status === 200)
+        if(response.status !== 200)
         {
-          return true
+          return false
         }
-        return false
+
+        return true
       }
       catch(erro)
       {
         console.log(erro)
         return false
       }
-      
+    },
+
+    async postTask(){
+      let response = await this.state.apiConfigs.api.post('/task', {
+        headers: {
+            'Authorization': "Bearer "+this.state.user.jwt
+        }
+      })
+    },
+
+    async getTasks(){
+      let response = await this.state.apiConfigs.api.get('/task', {
+        headers: {
+            'Authorization': "Bearer "+this.state.user.jwt
+        }
+      })
+      console.log(this.state.task.taskList)
+      this.commit("updateTaskList", response.data)
     }
-    
   },
   modules: {
   }

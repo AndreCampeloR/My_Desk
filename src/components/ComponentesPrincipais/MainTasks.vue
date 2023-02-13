@@ -1,7 +1,7 @@
 <template>
-    <div class="form" :class="{'border': lista.length == 0, }">
-        <p v-if="lista.length == 0" id="semTasks">Sem tasks no momento</p>
-        <Task v-for="task in lista" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
+    <div class="form" :class="{'border': tasks.length == 0}">
+        <p v-if="tasks.length == 0" id="semTasks">Sem tasks no momento</p>
+        <Task v-for="task in tasks" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
             <MenuConfig/>
         </Task> 
     </div>
@@ -12,30 +12,21 @@ import Task from '../ComponentesSecundarios/Task.vue';
 import MenuConfig from '../ComponentesSlots/MenuConfig.vue';
 
 export default {
-  name: 'MainTasks',
-  components:{
-    Task,
-    MenuConfig
-  },
-  data(){
+    name: 'MainTasks',
+    components:{
+        Task,
+        MenuConfig
+    },
+    data(){
     return{
-        lista: [
-            {
-                desc: "Corrigir bugfix/2697",
-                id: 1,
-            },
-            {
-                desc: "Entregar relatorio mensal",
-                id: 2,
-            },
-            {
-                desc: "Criação dos graficos live mensal",
-                id: 3,
-            }
-        ],
+        tasks: [''],
         configIsOpen: false
     }
-  }
+    },
+    async beforeMount(){
+        this.$store.dispatch("getTasks")
+        this.tasks = this.$store.state.task.taskList
+    }
 }
 
 </script>
