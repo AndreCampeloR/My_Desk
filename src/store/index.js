@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 import api from "../services/services"
+import isAuth from './isAuth.js'
+import postTask from './postTask'
 
 export default createStore({
   state: {
@@ -42,57 +44,41 @@ export default createStore({
         state.user.jwt = null
       }
     },
+
     updateTaskList(state, list)
     {
-      console.log(list)
       state.task.taskList = list
-      console.log(state.task.taskList)
     }
   },
 
   actions: {
     async isAuth(){
-      // REFATORAR
       this.commit('GetJwtAtLocalStorage')
-      try
-      {
-        let response = await this.state.apiConfigs.api.get('/validateJwt', {
-          headers: {
-            'Authorization': "Bearer "+this.state.user.jwt
-          }
-        })
-
-        if(response.status !== 200)
-        {
-          return false
-        }
-
-        return true
-      }
-      catch(erro)
-      {
-        console.log(erro)
-        return false
-      }
+      return isAuth(this.state.apiConfigs.api, this.state.user.jwt)
     },
 
-    async postTask(){
-      let response = await this.state.apiConfigs.api.post('/task', {
-        headers: {
-            'Authorization': "Bearer "+this.state.user.jwt
-        }
-      })
+    async postTask(state, content){
+      postTask(this.state.apiConfigs.api, this.state.user.jwt, content)
+      this.dispatch("getTasks")
     },
 
     async getTasks(){
-      let response = await this.state.apiConfigs.api.get('/task', {
+      this.state.apiConfigs.api.get('/task', {
         headers: {
             'Authorization': "Bearer "+this.state.user.jwt
         }
       })
-      console.log(this.state.task.taskList)
-      this.commit("updateTaskList", response.data)
+      .then(
+        (response)=>{
+          this.commit("updateTaskList", response.data)
+          console.log(this.state.task.taskList)
+      })
+      .catch(
+        (erro)=>{
+          console.log("Deu erro na busca da task: "+erro)
+      })
     }
+
   },
   modules: {
   }

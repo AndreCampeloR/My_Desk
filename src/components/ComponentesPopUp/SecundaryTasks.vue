@@ -1,29 +1,24 @@
 <template>
     <div id="Secundary-background">
         <div id="Secundary-Body">
-          <div id="Secundary-header">
-            <h3>Tasks Secundárias</h3>
-            <span class="material-symbols-outlined" id="close" @click="closeWindow()">
-                close
-            </span>
-          </div>
+            <div id="Secundary-header">
+                <h3>Todas Tasks</h3>
+                <span class="material-symbols-outlined" id="closePopup" @click="closeWindow()">
+                    close
+                </span>
+            </div>
             <form class="form scroll" action="">
-                <Task class="taskSecundary" v-for="task in listaSecundaria" :key="task.id" :TaskBody="task">
-                    <div id="icons">
-                            <span id="check" class="material-symbols-outlined">check</span>
-                            <span id="trash" class="material-symbols-outlined">delete</span>
+                <Task class="taskSecundary" v-for="task in this.$store.state.task.taskList" :key="task.id" :TaskBody="task">
 
-                       <div id="arrows">
-    
-                            <span id="arrowUp" @click="subirTask()" class="material-symbols-outlined">expand_less</span>
-                            <span id="arrowDown" @click="descerTask()" class="material-symbols-outlined">expand_more</span>
-                    
-                        </div>
+                    <div class="menu-options">
+                        <span class="material-symbols-outlined" id="done" >done</span>
+                        <span class="material-symbols-outlined" id="close">close</span>
+                        <span class="material-symbols-outlined" id="config">settings</span>
                     </div>
+
                 </Task>
             </form>
-        </div>     
-                    
+        </div>             
     </div>
 </template>
 
@@ -37,60 +32,15 @@ export default {
     name: 'SecundaryTasks',
     data(){
     return{
-        listaSecundaria: [
-            {
-                desc: "fazer compras",
-                id: 1,
-            },
-            {
-                desc: "vender cachorro",
-                id: 2,
-            },
-            {
-                desc: "comprar ingresso do show do manuel gomes",
-                id: 3,
-            },
-            {
-                desc: "jogar de ash na ranked",
-                id: 4,
-            },
-            {
-                desc: "comprar carneiro",
-                id: 5,
-            },
-            {
-                desc: "ir na padaria",
-                id: 6,
-            },
-            {
-                desc: "jogar bola",
-                id: 7,
-            },
-            {
-                desc: "comprar carneiro",
-                id: 5,
-            },
-            {
-                desc: "ir na padaria",
-                id: 6,
-            },
-            {
-                desc: "jogar bola",
-                id: 7,
-            }
-        ]
+
     }
   },
     methods:{
         closeWindow(){
             this.$emit('fecharPopUp', true)
         },
-        descerTask(){
-            console.log(0)
-        },
-        subirTask(){
-            console.log(1)
-        }
+        
+        
     },
     components: {
         Task,
@@ -139,7 +89,7 @@ export default {
     margin-bottom: 30px;
 }
 
-#close{
+#closePopup{
     display: block;
     position: absolute;
     top: 5%;
@@ -175,71 +125,32 @@ export default {
     direction: ltr;
 }
 
-#icons{
-    display: flex;
-    position: relative;
-    right: 0;
-    justify-content: center;
-}
-
-#check{
+#done{
     color: green;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    cursor: pointer;
-    margin: 10px;
-}
-
-#check:hover{
-    transform: scale(1.2);
-}
-
-#trash{
-    color: #ff0000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
     cursor: pointer;
 }
-
-#trash:hover{
-    transform: scale(1.2);
-} 
-
-#arrows{
-    display: flex;
-    flex-direction: column;
-    margin: auto 10px auto auto;
+#close{
+    color: red;
+    cursor: pointer;
 }
-
-#arrowUp{
+#config{
+    color: gray;
+    cursor: pointer;
+}
+.menu-options{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    margin: auto 10px auto 10px;
-    cursor: pointer;
+    align-content: center;
 }
-
-#arrowUp:hover{
+.menu-options span{
+    cursor: default;
+    transition: 0.5s all;
+    padding: 3px 5px;
+}
+.menu-options span:hover{
     transform: scale(1.2);
-}
-
-#arrowDown:hover{
-    transform: scale(1.2);
-}
-
-#arrowDown{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin: auto 10px auto 10px;
-    cursor: pointer;
 }
 
 

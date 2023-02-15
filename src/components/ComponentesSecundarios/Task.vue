@@ -1,14 +1,14 @@
 // ObjectUsed
 // {
 //     id: "IdDaTarefa INT",
-//     desc: "descriocaoTarefa STRING",
+//     descricao: "descriocaoTarefa STRING",
 // }
 <template>
   <div class="task"> 
     
      <div id="task-body">
         <p>
-            {{TaskBody.desc}}
+            {{TaskBody.descricao}}
         </p>
      </div>
      
@@ -44,7 +44,7 @@ export default {
         padding-left: 5px;
     }
     #task-body{
-        width: 90%;
+        width: clamp(60%, auto, 90%);
     }
     
     

@@ -75,6 +75,7 @@ export default {
 
         async addTask(content){
             await this.$store.dispatch("postTask", content)
+            this.closeWindow()
         }
     }
 }

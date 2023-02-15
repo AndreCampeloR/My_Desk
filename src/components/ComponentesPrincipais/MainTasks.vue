@@ -1,8 +1,8 @@
 <template>
-    <div class="form" :class="{'border': tasks.length == 0}">
-        <p v-if="tasks.length == 0" id="semTasks">Sem tasks no momento</p>
-        <Task v-for="task in tasks" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
-            <MenuConfig/>
+    <div class="form" :class="{'border': updateTaskList() == 0}">
+        <p v-if="updateTaskList() == 0" id="semTasks">Sem tasks no momento</p>
+        <Task v-for="task in updateTaskList()" :key="task.id" :TaskBody="task" @configClose="task.configIsOpen=$event" :configIsOpenProp="configIsOpen">
+            <MenuConfig :taskId="task.id"/>
         </Task> 
     </div>
     </template>
@@ -18,14 +18,20 @@ export default {
         MenuConfig
     },
     data(){
-    return{
-        tasks: [''],
-        configIsOpen: false
-    }
+        return{
+            configIsOpen: false,
+            MainTasks: []
+        }
     },
-    async beforeMount(){
-        this.$store.dispatch("getTasks")
-        this.tasks = this.$store.state.task.taskList
+    methods: {
+        updateTaskList(){
+            	let tasks = this.$store.state.task.taskList
+                if(tasks.length > 2)
+                {
+                    return tasks.slice(0, 3)
+                }
+                return tasks
+        }
     }
 }
 

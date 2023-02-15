@@ -7,13 +7,13 @@
           <DangerZoneTasks/>
 
           <div class="btns">
-             <button id="btnAdicionar" @click="showAddTaskWindow = !showAddTaskWindow">
-             <span class="material-symbols-outlined">add_circle</span>
-              Adicionar Tasks
-             </button>
-             <button id="btnSecundary" @click="showSecundaryTasksWindow = !showSecundaryTasksWindow">
-              TASKs Secundárias 
-             </button>
+              <button id="btnAdicionar" @click="showAddTaskWindow = !showAddTaskWindow">
+                <span class="material-symbols-outlined">add_circle</span>
+                Adicionar Tasks
+              </button>
+              <button id="btnSecundary" @click="showSecundaryTasksWindow = !showSecundaryTasksWindow">
+                TASKs Secundárias 
+              </button>
           </div>
       </main>
 
@@ -47,7 +47,10 @@ export default {
       showAddTaskWindow: false,
       showSecundaryTasksWindow: false
     }
-  }
+  },
+  async beforeMount(){
+        await this.$store.dispatch("getTasks")
+    }
 }
 </script>
 
