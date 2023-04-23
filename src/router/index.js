@@ -96,6 +96,7 @@ router.beforeEach(
         next()
     }
   }
+  
 )
 
 export default router
